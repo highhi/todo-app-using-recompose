@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack -w",
-    "server": "python -m SimpleHTTPServer 5555"
+    "server": "python -m SimpleHTTPServer 5555",
+    "prettier": "prettier --write ./src/**/*.js"
   },
   "dependencies": {
     "react": "^16.2.0",
@@ -17,6 +18,10 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "prettier": "^1.9.2",
     "webpack": "^3.10.0"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }
