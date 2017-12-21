@@ -3,6 +3,16 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 
 let id = 0;
 
+function omit(obj, ...keys) {
+  return Object.keys(obj).reduce((acc, key) => {
+    if (keys.indexOf(key) === -1) {
+      acc[key] = obj[key];
+    }
+
+    return acc;
+  }, {});
+}
+
 export default (todos, action) => {
   switch (action.type) {
     case ADD_TODO:
@@ -10,9 +20,7 @@ export default (todos, action) => {
         [id++]: action.payload.todo
       });
     case REMOVE_TODO:
-      const newTodos = Object.assign({}, todos);
-      delete newTodos[action.payload.id];
-      return newTodos;
+      return omit(todos, action.payload.id);
     default:
       return todos;
   }
